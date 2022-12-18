@@ -13,7 +13,7 @@ describe('empty spec', () => {
 
       
       //#product-1 > div.chakra-stack.css-n21gh5 > div > div.chakra-stack.css-1oeb4ru > p
-      for (var x=0;x<22;x++){
+      for (var x=0;x<22;x++){ //replace the number in id locator for the various products since they increment by 1
         cy.get('#product-${x} > div.chakra-stack.css-n21gh5 > div > div.chakra-stack.css-1oeb4ru > p').each(($name, index) => {
           expect($name.text()).equal(AZsort[index])
         })
@@ -28,10 +28,11 @@ describe('empty spec', () => {
         cy.get('#sort').select('zToA')
         
         var ZAsort = products.sort().reverse()
-      
-        cy.get('.inventory_item_name').each(($name, index) => {
+        for (var x=0;x<22;x++){ //replace the number in id locator for the various products since they increment by 1
+        cy.get('#product-${x} > div.chakra-stack.css-n21gh5 > div > div.chakra-stack.css-1oeb4ru > p').each(($name, index) => {
           expect($name.text()).equal(AZlist[index])
       })
+        }
 
   })
 })
